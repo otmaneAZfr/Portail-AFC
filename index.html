@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portail Consultant - Allianz France Conseil</title>
+  <style>
+    :root{
+      --az-blue:#003781;
+      --az-blue-2:#0053a0;
+      --az-light:#eef4fb;
+      --az-border:#d7e3f4;
+      --az-text:#1b2a41;
+      --az-muted:#5f6f86;
+      --white:#ffffff;
+      --shadow:0 14px 36px rgba(0,55,129,.10);
+      --radius-xl:24px;
+      --radius-lg:18px;
+      --success-bg:#eff8f3;
+      --success-border:#cfe8d7;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--az-text);
+      background:linear-gradient(180deg,#f7f9fc 0%,#edf3f9 100%);
+    }
+    .topbar{
+      background:var(--az-blue);
+      color:#fff;
+      padding:12px 0;
+      border-bottom:4px solid #6fb6ff;
+    }
+    .wrap{
+      width:min(1240px,calc(100% - 32px));
+      margin:0 auto;
+    }
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      font-size:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:700;
+    }
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border:2px solid #fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:10px;
+      font-weight:700;
+    }
+    .hero{
+      margin:28px auto 24px;
+      background:linear-gradient(135deg,var(--az-blue) 0%,var(--az-blue-2) 65%,#1976d2 100%);
+      color:#fff;
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+ ##     grid-template-columns:1.45fr .95fr;
+      gap:24px;
+      padding:34px;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:38px;
+      line-height:1.1;
+    }
+    .hero p{
+      margin:0 0 18px;
+      line-height:1.55;
+      max-width:760px;
+      opacity:.97;
+    }
+    .hero-panel{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:20px;
+      padding:20px;
+    }
+    .hero-panel h3{
+      margin:0 0 12px;
+      font-size:18px;
+    }
+    .hero-panel ul{
+      margin:0;
+      padding-left:18px;
+      line-height:1.7;
+    }
+    .search{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .search input{
+      flex:1 1 360px;
+      border:none;
+      border-radius:14px;
+      padding:15px 16px;
+      font-size:15px;
+    }
+    .search button{
+      background:#fff;
+      color:var(--az-blue);
+      border:none;
+      border-radius:14px;
+      padding:15px 18px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .search button.secondary{
+      background:rgba(255,255,255,.16);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.28);
+    }
+    .search-info{
+      margin-top:10px;
+      font-size:14px;
+      opacity:.95;
+    }
+    .section-title{
+      margin:28px 0 14px;
+      font-size:24px;
+      color:var(--az-blue);
+    }
+    .intro-note{
+      color:var(--az-muted);
+      margin:0 0 10px;
+      line-height:1.5;
+    }
+    .top-actions{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+      gap:14px;
+    }
+    .action,.card,.copilot-card{
+      background:var(--white);
+      border:1px solid var(--az-border);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      transition:all .15s ease;
+    }
+    .action{
+      padding:18px;
+      text-decoration:none;
+      color:var(--az-text);
+    }
+    .action:hover,.card:hover,.copilot-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 40px rgba(0,55,129,.14);
+    }
+    .action .icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background:var(--az-light);
+      margin-bottom:12px;
+      font-size:22px;
+    }
+    .action strong{
+      display:block;
+      margin-bottom:6px;
+      color:var(--az-blue);
+      font-size:16px;
+    }
+    .action span{
+      color:var(--az-muted);
+      line-height:1.4;
+      font-size:14px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+      gap:18px;
+      margin-top:8px;
+    }
+    .card,.copilot-card{
+      padding:22px;
+    }
+    .card h3,.copilot-card h3{
+      margin:0 0 10px;
+      color:var(--az-blue);
+      font-size:21px;
+    }
+    .card p,.copilot-card p{
+      margin:0 0 14px;
+      color:var(--az-muted);
+      line-height:1.5;
+    }
+    .card ul,.copilot-card ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .card li,.copilot-card li{
+      padding:10px 0;
+      border-bottom:1px solid #edf2f8;
+    }
+    .card li:last-child,.copilot-card li:last-child{
+      border-bottom:none;
+    }
+    .card a,.copilot-card a{
+      color:var(--az-blue-2);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .card a:hover,.copilot-card a:hover{
+      text-decoration:underline;
+    }
+    .kpi-row{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+      margin-top:24px;
+    }
+    .kpi{
+      background:#fff;
+      border:1px solid var(--az-border);
+      border-radius:16px;
+      padding:18px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .kpi strong{
+      display:block;
+      color:var(--az-blue);
+      font-size:30px;
+      margin-bottom:6px;
+    }
+    .kpi span{
+      color:var(--az-muted);
+      font-size:14px;
+    }
+    .hidden{display:none !important}
+    .footer{
+      margin:28px 0 34px;
+      padding:18px 0 0;
+      border-top:1px solid var(--az-border);
+      color:var(--az-muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+	.hidden-text {
+    position: absolute;
+    left: -9999px;
+    }
+    mark{
+      background:#fff2ab;
+      padding:0 .15em;
+      border-radius:4px;
+    }
+    @media (max-width:980px){
+      .hero-grid,.copilot-layout{grid-template-columns:1fr}
+    }
+    @media (max-width:860px){
+      .hero h1{font-size:32px}
+    }
+  </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">VCYFFFC6CDDT-925998736-58197</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">9126e334-9e95-4830-bd19-997ceef3e59f</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://allianzms.sharepoint.com/teams/FR1741-11004520/_layouts/15/DocIdRedir.aspx?ID=VCYFFFC6CDDT-925998736-58197, VCYFFFC6CDDT-925998736-58197</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">AZ</div>
+        <div>Allianz France Conseil· Portail Consultant</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Portail Consultant AFC</h1>
+          <p>Un point d’entrée unique pour simplifier l’accès aux processus internes, aux outils, aux standards de mission, à la documentation RH et à la base de connaissances.</p>
+          <div class="search">
+            <input id="pageSearch" type="text" placeholder="Rechercher un processus, un template, un contact, un outil..." />
+            <button type="button" id="searchBtn">Rechercher</button>
+            <button type="button" class="secondary" id="resetBtn">Réinitialiser</button>
+			<button type="button" class="secondary" id="agent" onclick="window.open('https://m365.cloud.microsoft/chat/?titleId=T_5d5da797-3f41-3218-f572-af45f5e60776&source=embedded-builder', '_blank')">↗ Ouvrir l’assistant dans M365 Copilot</button>          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Accès rapides</h2>
+      <p class="intro-note">Les actions les plus utilisées au quotidien par les consultants et managers.</p>
+      <div class="top-actions">
+         <a class="action searchable" href="https://azfrance-rfrentielportefeuille-p.crm4.dynamics.com/main.aspx?appid=a044c79a-6a3e-4196-84ab-dc6af22ae05f&pagetype=entitylist&etn=azfr_projectreport&viewid=bd55a47d-1612-f111-8406-7ced8dc40546&viewType=1039&lid=1774427286243" target="_blank" rel="noopener noreferrer">
+		  <div class="icon">🗓️</div>
+          <strong>Project Hub</strong>
+          <span>Suivi des projets, budget, planning, risques,..</span>
+        </a>
+         <a class="action searchable" href="https://allianzms.sharepoint.com/:u:/r/teams/FR1741-11004520/SitePages/Home_page-N1.aspx?csf=1&web=1&e=Htcv01">
+          <div class="icon">🏛️</div>
+          <strong>Page Connect AFC</strong>
+          <span>sharePoint de la direction AFC, Missions / Raison d’être / Offre de services AFC </span>
+        </a>
+        <a class="action searchable" href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/2.%20Bo%C3%AEte%20%C3%A0%20outils/2.1%20Practice%20gestion%20de%20projet?csf=1&web=1&e=6hOKWB">
+          <div class="icon">📂</div>
+          <strong>Templates projet</strong>
+          <span>Livrables standard, supports comité, CR, cadrage, plan projet.</span>
+        </a>
+        <a class="action searchable" href="https://aztech.service-now.com/employeeportal?id=emp_taxonomy_topic&topic_id=e124439c977ead10ea0676300153af3e">
+          <div class="icon">🔐</div>
+          <strong>Demandes d’accès IT</strong>
+          <span>Formulaires, habilitations, incidents et demandes de support.</span>
+        </a>
+        <a class="action searchable" href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/5.%20Formations?csf=1&web=1&e=n4uPak">
+        <span class="icon">🎓</span>
+        <strong>Espace de formation</strong>
+        <span>Formation, suivi des heures de formation.</span>
+      </a>
+      </div>
+    </section>
+
+     <section>
+      <h2 class="section-title">Rubriques du portail</h2>
+      <div class="grid">
+        <article class="card searchable">
+          <h3>👥 Vie d'équipe AFC</h3>
+          <p>Tout ce qu’un consultant doit trouver sur la vie au quotidien chez AFC</p>
+<!-- ajouter des mots clès pour les recherche -->		  
+<!--span class="hidden-text">flash report</span--> 
+
+        <ul>
+          <li><a href="https://allianzms.sharepoint.com/:p:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/1.%20Vie%20de%20la%20Direction/1.5%20Onboarding/Onboarding%20AFC/AZ_Astuces%20Onboarding%20AFC.pptx?d=wea6fad63a0c64566b76f5860df02cc7d&csf=1&web=1&e=gnTDje">Onboarding</a></li>
+          <li><a href="#">Gouvernance: comités / objectifs</a></li>
+		  <li><a href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/1.%20Vie%20de%20la%20Direction/1.1%20GT%20Animation?csf=1&web=1&e=iBWzug">GT Animation</a></li>
+          <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=LeQGbiVpxke555WBx8owKnHr1ZsIGaNMvLO3ioSjXjVUNjJRQjZSMFo0SVhXT0RRR1lBTVEwVjVTVy4u">Voix du consultant</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/1.%20Vie%20de%20la%20Direction/1.4%20Evenements?csf=1&web=1&e=a3w5MJ">Evenements internes</a></li>		  
+          <li><a href="https://allianzms.sharepoint.com/:l:/r/teams/FR1741-11004520/Lists/Trombinoscope?e=M3juCz">Trombinoscope</a></li>
+		  <li><a href="https://allianzms.sharepoint.com/:p:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/6.%20GROW/Assets%20finaux/Pilier%203%20Orientation%20de%20carri%C3%A8re/Pilier%203_Orientation%20de%20carri%C3%A8re.pptx?d=wa9216ad7ed84473b9f7e18f8a8a4dbef&csf=1&web=1&e=deRcVk">Rôles Consultant, LT, MCDC, Coachs</a></li>
+        </ul>
+
+        </article>
+
+        <article class="card searchable">
+          <h3>🧑‍💻 Travailler en mission</h3>
+          <p>Référentiels, méthodes et livrables permettant d’appliquer des standards homogènes.</p>
+        <ul>
+          <li><a href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/3.%20Practices%20%26%20Initiatives/3.1%20Practice%20Gestion%20de%20projet?csf=1&web=1&e=aDg1XU">Practice Gestion des projets</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/3.%20Practices%20%26%20Initiatives/3.2%20Practice%20Process?csf=1&web=1&e=0M6FWT">Practice Optimisation des processus</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:u:/r/teams/FR0023-12650404/SitePages/1.Home.aspx?csf=1&web=1&e=aTVzoF">Practice Change management</a></li>
+		  <li><a href="https://allianzms.sharepoint.com/:u:/r/teams/FR1741-11004520/SitePages/P.IA-N2.aspx?csf=1&web=1&e=08qEKC">Practice DATA & IA</a></li>
+		  <li><a href="https://azfrance-rfrentielportefeuille-p.crm4.dynamics.com/main.aspx?appid=a044c79a-6a3e-4196-84ab-dc6af22ae05f&pagetype=entitylist&etn=azfr_projectreport&viewid=bd55a47d-1612-f111-8406-7ced8dc40546&viewType=1039&lid=1774427286243">Project Hub</a></li>     
+		</ul>
+
+        </article>
+
+        <article class="card searchable">
+          <h3>🧩 Processus internes</h3>
+          <p>Accès centralisé aux processus administratifs, RH, ASC et gestion interne.</p>
+        <ul>
+          <li><a href="https://app.napta.io/">Suivi Staffing (NAPTA)</a></li>		
+          <li><a href="https://allianz.hubtobeeflex.com/auth/realms/beeflex/protocol/openid-connect/auth?client_id=beeflex-app&redirect_uri=https%3A%2F%2Fallianz.hubtobeeflex.com%2Fapp%2F%23%2Fplanning%2Ffavorites&state=77925843-1414-4986-b0d5-337af7d00846&response_mode=fragment&response_type=code&scope=openid&nonce=f50732b8-b8d4-4428-8013-b8a3b1ee348d">EasyOffice</a></li>
+		  <li><a href="https://performancemanager5.successfactors.eu/login?company=AZGROUPPROD&loginMethod=SSO">SuccessFactors</a></li>
+          <li><a href="https://myapps.microsoft.com/signin/9d6f028f-eca2-4496-a4b3-03d9373f3f48?tenantId=6e06e42d-6925-47c6-b9e7-9581c7ca302a">Congés & absences</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:b:/r/sites/FR0023-connect-az-france-ressources-humaines/Documents%20partages/T%C3%A9l%C3%A9travail%20-%20Accord%20du%2020.10.2023/Note%20de%20service%20mat%C3%A9riel%20t%C3%A9l%C3%A9travail.pdf?csf=1&web=1&e=jJ0cgf">Materiel Télétravail</a></li>
+        </ul>
+        </article>
+        <article class="card searchable">
+          <h3>🏢 Mon environnement</h3>
+          <p>Décrit l'environnement dans lequel évolu le consultant interne AFC.</p>
+        <ul>
+          <li><a href="https://www.allianz.com/en/about-us/company/products-services.html">Le groupe Allianz</a></li>
+          <li><a href="https://allianzms.sharepoint.com/sites/DE1890-connect-azse-group-operations-organization-data/SitePages/Allianz-Governance-and-Control-Hierarchy.aspx">Les OEs Allianz</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:x:/r/sites/DE1890-connect-azse-group-operations-organization-data/Shared%20Documents/Group%20Org%20Management%20(GOM)/Allianz%20Governance%20and%20Control%20Hierarchy/OE-Classification_V43.xlsx?d=wa874c490de7f4e17866ad900cd7e1f48&csf=1&web=1&e=7sXjCh">Les piliers H</a></li>
+          <li><a href="https://app.pandasuite.com/6aDKl7nU#!/publication?type=desktop">Orga et gouvernance AZ FR</a></li>
+          <li><a href="https://allianzms.sharepoint.com/sites/FR0023-connect-az-france-service-client">Zoom Unité Opérations</a></li>		  
+        </ul>
+        </article>
+        <article class="card searchable">
+          <h3>📚 Base de connaissances</h3>
+          <p>Capitalisation utile pour retrouver les informations clés, standards, benchmarks et contenus de référence.</p>
+        <ul>
+          <li><a href="https://allianzms.sharepoint.com/teams/FR1741-7967840">Karadoc</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/5.%20Formations?csf=1&web=1&e=n4uPak">Bibliothèque Formations interne</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:f:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/2.%20Bo%C3%AEte%20%C3%A0%20outils?csf=1&web=1&e=WcqMuN">Boite à outils</a></li> 		  
+          <li><a href="https://allianzms.sharepoint.com/:b:/r/teams/FR1741-11004520/Shared%20Documents/0_%20%F0%9F%93%A2General/1.%20Vie%20de%20la%20Direction/1.5%20Onboarding/Onboarding%20AFC/GLOSSAIRE_DES_ACRONYMES.pdf?csf=1&web=1&e=zzMRro">Glossaire des Acronymes</a></li> 		  
+        </ul>
+        </article>
+        <article class="card searchable">
+          <h3>🛠️ Outils & plateformes</h3>
+          <p>Raccourcis vers les outils collaboratifs, documentaires, de suivi du staffing.</p>
+        <ul>
+          <li><a href="https://teams.microsoft.com/l/team/19%3AV4sYC14vb2iONuyB2F3h7h7jmr8V2cgtljZw81xkeu81%40thread.tacv2/conversations?groupId=5f04255b-9f23-407a-bb4e-09afd20ca133&tenantId=6e06e42d-6925-47c6-b9e7-9581c7ca302a">Teams AFC</a></li>
+          <li><a href="https://allianzms.sharepoint.com/:u:/r/teams/FR1741-11004520/SitePages/Home_page-N1.aspx?csf=1&web=1&e=Htcv01">Page Connect AFC</a></li>
+          <li><a href="https://ascallianz.portailce.com/">ASC Allianz</a></li>
+          <li><a href="https://aztech.service-now.com/employeeportal">Support IT</a></li>
+          <li><a href="https://aztech.service-now.com/employeeportal?id=emp_taxonomy_topic&topic_id=b224c79c977ead10ea0676300153af66&in_context=true">Contact RH</a></li>
+          <li><a href="https://allianz.snouki.fr/allianz/isiodesk/main.faces">Contact DILE (Moyen Généraux)</a></li>
+        </ul>
+        </article>
+      </div>
+    </section>
+    <footer class="footer"></footer>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById("pageSearch");
+    const searchBtn = document.getElementById("searchBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const searchInfo = document.getElementById("searchInfo");
+    const searchableItems = Array.from(document.querySelectorAll(".searchable"));
+
+    function clearMarks(el){
+      el.querySelectorAll("mark").forEach(m => {
+        const p = m.parentNode;
+        p.replaceChild(document.createTextNode(m.textContent), m);
+        p.normalize();
+      });
+    }
+
+    function esc(s){
+      return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function markMatches(el, q){
+      if(!q) return;
+      const rx = new RegExp("(" + esc(q) + ")", "gi");
+      const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while(walk.nextNode()){
+        const n = walk.currentNode;
+        if(n.parentNode && !["SCRIPT","STYLE","MARK"].includes(n.parentNode.tagName) && n.nodeValue.trim()){
+          nodes.push(n);
+        }
+      }
+      nodes.forEach(n => {
+        if(rx.test(n.nodeValue)){
+          const span = document.createElement("span");
+          span.innerHTML = n.nodeValue.replace(rx, "<mark>$1</mark>");
+          n.parentNode.replaceChild(span, n);
+        }
+      });
+    }
+
+    function runSearch(){
+      const q = searchInput.value.trim().toLowerCase();
+      let count = 0;
+      searchableItems.forEach(item => {
+        clearMarks(item);
+        const match = !q || item.innerText.toLowerCase().includes(q);
+        item.classList.toggle("hidden", !match);
+        if(match){
+          count++;
+          markMatches(item, q);
+        }
+      });
+      searchInfo.textContent = q
+        ? count + " bloc(s) trouvé(s) pour : “" + searchInput.value + "”."
+        : "La recherche filtre les contenus de cette page en temps réel.";
+    }
+
+    searchInput.addEventListener("input", runSearch);
+    searchBtn.addEventListener("click", runSearch);
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      runSearch();
+      searchInput.focus();
+    });
+
+    const copilotInput = document.getElementById("copilotInput");
+    const copilotSend = document.getElementById("copilotSend");
+    const copilotMessages = document.getElementById("copilotMessages");
+    const promptButtons = document.querySelectorAll(".prompt-chip");
+
+    const cannedAnswers = [
+      {
+        key:["template","copil","comité","projet"],
+        answer:"Les templates projet sont disponibles dans la rubrique “Travailler en mission” et dans l’accès rapide “Templates projet”. Vous pouvez y placer les liens SharePoint vers les modèles de cadrage, COPIL et comptes-rendus."
+      },
+      {
+        key:["frais","note de frais"],
+        answer:"La procédure de note de frais doit pointer vers l’outil officiel et le mode opératoire. Dans cette maquette, elle apparaît dans “Accès rapides” et dans “Processus internes”."
+      },
+      {
+        key:["nouveau","onboarding","commencer"],
+        answer:"Pour un nouveau consultant, commencez par la rubrique “Onboarding” : guide consultant, checklist d’arrivée, accès outils, organisation et parcours de formation."
+      },
+      {
+        key:["it","accès","support"],
+        answer:"Pour les accès IT, le portail doit renvoyer vers le formulaire d’habilitation, le support IT et les contacts d’escalade. Les emplacements prévus sont dans “Accès rapides” et “Support & contacts”."
+      },
+      {
+        key:["congé","absence","rh"],
+        answer:"Les congés et absences sont prévus dans “Accès rapides” et “Processus internes”. Vous pouvez y mettre le lien vers l’outil RH, la politique d’absence et les contacts RH."
+      }
+    ];
+
+    function addMessage(text, role){
+      const div = document.createElement("div");
+      div.className = "message " + role;
+      div.textContent = text;
+      copilotMessages.appendChild(div);
+      copilotMessages.scrollTop = copilotMessages.scrollHeight;
+    }
+
+    function respond(prompt){
+      addMessage(prompt, "user");
+      const low = prompt.toLowerCase();
+      const found = cannedAnswers.find(i => i.key.some(k => low.includes(k)));
+      const answer = found
+        ? found.answer
+        : "Cette zone est une maquette d’intégration Copilot. Remplacez cette réponse par votre agent Copilot Studio ou par le composant web connecté à vos contenus SharePoint et Teams.";
+      setTimeout(() => addMessage(answer, "bot"), 250);
+    }
+
+    copilotSend.addEventListener("click", () => {
+      const v = copilotInput.value.trim();
+      if(!v) return;
+      respond(v);
+      copilotInput.value = "";
+      copilotInput.focus();
+    });
+
+    copilotInput.addEventListener("keydown", e => {
+      if(e.key === "Enter"){
+        e.preventDefault();
+        copilotSend.click();
+      }
+    });
+
+    promptButtons.forEach(btn => {
+      btn.addEventListener("click", () => respond(btn.dataset.prompt));
+    });
+  </script>
+</body>
+</html>
